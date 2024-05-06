@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/demo"
+           targetNamespace="http://example.com/demo"
+           elementFormDefault="qualified">
+
+    <xs:element name="MyRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="requestMessage" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="MyResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responseMessage" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAllBooksRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Tidak ada elemen di sini karena kita tidak memerlukan parameter apa pun -->
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAllBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="tns:Books" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Books">
+        <xs:sequence>
+            <xs:element name="id_books" type="xs:int"/>
+            <xs:element name="name_books" type="xs:string"/>
+            <xs:element name="kategori_books" type="xs:string"/>
+            <!-- Tambahkan elemen lainnya sesuai kebutuhan -->
+        </xs:sequence>
+    </xs:complexType>
+
+   
+</xs:schema>
